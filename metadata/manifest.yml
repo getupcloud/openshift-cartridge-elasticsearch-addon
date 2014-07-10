@@ -5,7 +5,7 @@ Description: "https://github.com/getupcloud/openshift-elasticsearch-cartridge/bl
 Version: 1.2
 License: Apache
 Vendor: elasticsearch.org
-Cartridge-Version: 0.0.1
+Cartridge-Version: 1.0.0
 Cartridge-Vendor: getup
 
 Categories:
