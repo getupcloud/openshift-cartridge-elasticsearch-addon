@@ -1,6 +1,6 @@
 OpenShift Elasticsearch Cartridge
 =================================
-Este cartucho disponibiliza um cluster Elasticsearch para sua aplicação.
+Este cartucho disponibiliza um cluster Elasticsearch embarcado para sua aplicação.
 
 Para criar sua aplicação Elasticsearch, primeiro você precisa registrar-se na Getup.
 Acesse http://getupcloud.com/#/sign-up e faça seu cadastro.
@@ -8,7 +8,7 @@ Você recebe gratuitamente 750hs para testar a plataforma.
 
 Para adicionar Elasticsearch a sua aplicação, execute no terminal:
 
-    rhc cartridge-add http://reflector-getupcloud.getup.io/github/getupcloud/openshift-elasticsearch-addon-cartridge -a <app>
+    rhc cartridge-add --app <app> http://reflector-getupcloud.getup.io/github/getupcloud/openshift-cartridge-elasticsearch-addon
 
 Adicionando nodes ao cluster
 ============================
@@ -27,24 +27,27 @@ Descubra e anote o valor das seguintes variáveis:
 
 Exporte os dados de conexao para todo o app:
 
-    $ rhc env-set -a <app> OPENSHIFT_ELASTICSEARCH_MASTER=$GEAR_DNS:$NODE_PROXY_PORT
+    $ rhc env-set --app <app> OPENSHIFT_ELASTICSEARCH_MASTER=$GEAR_DNS:$NODE_PROXY_PORT
                                                           ^^^^^^^^^ ^^^^^^^^^^^^^^^^
 
 Agora estamos prontos para adicionar novos nodes:
 
-    $ rhc cartridge-scale getup-elasticsearch 2 -a <app>
+    $ rhc cartridge-scale --app <app> getup-elasticsearch-addon 2
 
 Plugins
 =======
-Para instalar plugins você precisa entrar no gear de ES e executar o comando `elasticsearch/bin/plugin` como de costume:
+Para instalar plugins você precisa entrar no gear de ES e executar o comando `elasticsearch-addon/bin/plugin` como de costume:
 
     $ rhc app-show <app> --gears
-    $ ssh <ELASTICSEARCH-GEAR-SSH-URL>
-    > elasticsearch/bin/plugin --install mobz/elasticsearch-head
+    $ ssh <ELASTICSEARCH-GEAR-SSH-URL> elasticsearch-addon/bin/plugin --install mobz/elasticsearch-head
 
 Configuração
 ============
 As configurações são construidas durante o start, a partir do arquivo `elasticsearch/config/elasticsearch.yml.erb`.
+
+Créditos
+========
+Baseado no trabalho inicial de https://github.com/ncdc/openshift-elasticsearch-cartridge.
 
 Licença
 =======
