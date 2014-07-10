@@ -1,4 +1,4 @@
-Name: elasticsearch
+Name: elasticsearch-addon
 Cartridge-Short-Name: ELASTICSEARCH
 Display-Name: Elasticsearch 1.2
 Description: "https://github.com/getupcloud/openshift-elasticsearch-cartridge/blob/master/metadata/manifest.yml"
