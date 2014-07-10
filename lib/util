@@ -1,0 +1,22 @@
+#!/bin/bash
+
+function install_version()
+{
+	local VERSION=$1
+
+	if [ -d $OPENSHIFT_ELASTICSEARCH_DIR/usr ]; then
+		echo Removing old version $(<$OPENSHIFT_ELASTICSEARCH_DIR/usr/.version)
+		rm -rf $OPENSHIFT_ELASTICSEARCH_DIR/usr
+	fi
+
+	echo Downloading version $VERSION
+	mkdir $OPENSHIFT_ELASTICSEARCH_DIR/usr
+	curl https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$VERSION.tar.gz | tar xzf - --strip-components=1 -C $OPENSHIFT_ELASTICSEARCH_DIR/usr
+
+	if [ -d $OPENSHIFT_ELASTICSEARCH_DIR/config/ ]; then
+		echo Using existing config files $OPENSHIFT_ELASTICSEARCH_DIR/config/
+	else
+		echo Creating new config $OPENSHIFT_ELASTICSEARCH_DIR/config/
+		mv $OPENSHIFT_ELASTICSEARCH_DIR/usr/config $OPENSHIFT_ELASTICSEARCH_DIR/config
+	fi
+}

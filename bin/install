@@ -1,0 +1,32 @@
+#!/bin/bash  -e
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+source $OPENSHIFT_ELASTICSEARCH_DIR/lib/util
+
+mkdir -p $OPENSHIFT_ELASTICSEARCH_DIR/run $OPENSHIFT_DATA_DIR/{elasticsearch,elasticsearch-plugins}
+
+install_version ${ES_VERSION}
+
+cart_name=`echo ${OPENSHIFT_ELASTICSEARCH_IDENT/:/-}|cut -f1 -d:`
+app_name=$OPENSHIFT_APP_NAME
+
+client_result ""
+client_result "Before adding extra ElasticSearch gears into your app, first you need to set a user env var."
+client_result ""
+client_result "1. Ssh into this gear and take note of var OPENSHIFT_ELASTICSEARCH_NODE_PROXY_PORT's value"
+client_result ""
+client_result " \$ ssh $USER@$OPENSHIFT_GEAR_DNS env | grep OPENSHIFT_ELASTICSEARCH_NODE_PROXY_PORT"
+client_result " OPENSHIFT_ELASTICSEARCH_NODE_PROXY_PORT=38037"
+client_result ""
+client_result "2. Save port number"
+client_result ""
+client_result " $ ES_PORT=38037"
+client_result ""
+client_result "3. Export env var OPENSHIFT_ELASTICSEARCH_MASTER as following:"
+client_result ""
+client_result " \$ rhc env-set -a $app_name OPENSHIFT_ELASTICSEARCH_MASTER=$OPENSHIFT_GEAR_DNS:\$ES_PORT"
+client_result ""
+client_result "4. Scale at will"
+client_result ""
+client_result " \$ rhc cartridge-scale $cart_name 3 -a $app_name"
+client_result ""

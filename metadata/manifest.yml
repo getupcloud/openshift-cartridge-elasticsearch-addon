@@ -1,0 +1,40 @@
+Name: elasticsearch
+Cartridge-Short-Name: ELASTICSEARCH
+Display-Name: ElasticSearch 1.2
+Description: "ElasticSearch"
+Version: 1.2
+License: Apache
+Vendor: elasticsearch.org
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: getup
+
+Categories:
+- service
+- database
+- embedded
+
+Provides:
+- elasticsearch
+- elasticsearch-1
+- elasticsearch-1.2
+
+Publishes:
+  publish-connection-info:
+    Type: ENV:NET_TCP:es:connection-info
+
+Scaling:
+  Min: 1
+  Max: -1
+
+Endpoints:
+  - Private-IP-Name:   IP
+    Private-Port-Name: PORT
+    Private-Port:      9200
+    Public-Port-Name:  PROXY_PORT
+    Protocols:
+    - http
+
+  - Private-IP-Name:   IP
+    Private-Port-Name: NODE_PORT
+    Private-Port:      9300
+    Public-Port-Name:  NODE_PROXY_PORT

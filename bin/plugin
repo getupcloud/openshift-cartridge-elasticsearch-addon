@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec $OPENSHIFT_ELASTICSEARCH_DIR/usr/bin/plugin -Des.path.plugins=$OPENSHIFT_DATA_DIR/elasticsearch-plugins $@
