@@ -1,7 +1,7 @@
 Name: elasticsearch
 Cartridge-Short-Name: ELASTICSEARCH
-Display-Name: ElasticSearch 1.2
-Description: "ElasticSearch"
+Display-Name: Elasticsearch 1.2
+Description: "https://github.com/getupcloud/openshift-elasticsearch-cartridge/blob/master/metadata/manifest.yml"
 Version: 1.2
 License: Apache
 Vendor: elasticsearch.org
