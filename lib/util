@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function install_version()
+function _install_version()
 {
 	local VERSION=$1
 

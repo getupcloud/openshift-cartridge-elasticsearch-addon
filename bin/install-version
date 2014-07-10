@@ -7,4 +7,4 @@ if [ $# -lt 1 ]; then
 fi
 
 source $OPENSHIFT_ELASTICSEARCH_DIR/lib/util
-install_version $1
+_install_version $1
