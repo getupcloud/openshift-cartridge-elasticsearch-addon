@@ -42,3 +42,6 @@ Provides Elasticsearch cartridge support to OpenShift. (Cartridge Format V2)
 %doc %{cartridgedir}/LICENSE.txt
 
 %changelog
+* Sun Jul 13 2014 Builder <getup@getupcloud.com> 1.0.1-1
+- new package built with tito
+
