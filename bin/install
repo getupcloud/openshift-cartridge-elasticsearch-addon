@@ -10,6 +10,8 @@ _install_version ${ES_VERSION}
 cart_name=`echo ${OPENSHIFT_ELASTICSEARCH_IDENT/:/-}|cut -f1 -d:`
 app_name=$OPENSHIFT_APP_NAME
 
+client_result "Instructions below are applicable only for scalable apps"
+client_result "========================================================"
 client_result ""
 client_result "Before adding extra ElasticSearch gears into your app, first you need to set a user env var."
 client_result ""
