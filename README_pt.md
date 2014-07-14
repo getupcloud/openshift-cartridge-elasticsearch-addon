@@ -10,9 +10,11 @@ Para adicionar Elasticsearch a sua aplicação, execute no terminal:
 
     rhc cartridge-add --app <app> http://reflector-getupcloud.getup.io/github/getupcloud/openshift-cartridge-elasticsearch-addon
 
+Para criar uma app escalável inclua a opção `--scaling` no comando acima.
+
 Adicionando nodes ao cluster
 ============================
-Antes de adicionar nodes ao cluster, você precisa exportar a variável OPENSHIFT_ELSTICSEARCH_MASTER com os dados de conexão do primeiro gear.
+Antes de adicionar nodes ao cluster, você precisa exportar a variável OPENSHIFT_ELASTICSEARCH_MASTER com os dados de conexão do primeiro gear.
 
 Descubra a URL SSH do primeiro gear Elasticsearch e entre nele:
 
@@ -25,10 +27,12 @@ Descubra e anote o valor das seguintes variáveis:
     > env | grep OPENSHIFT_ELASTICSEARCH_NODE_PROXY_PORT
     > exit
 
+* Se nada aparecer no segundo comando talvez sua app não seja escalável. Por favor veja a primeira seção.
+
 Exporte os dados de conexao para todo o app:
 
     $ rhc env-set --app <app> OPENSHIFT_ELASTICSEARCH_MASTER=$GEAR_DNS:$NODE_PROXY_PORT
-                                                          ^^^^^^^^^ ^^^^^^^^^^^^^^^^
+                                                             ^^^^^^^^^ ^^^^^^^^^^^^^^^^
 
 Agora estamos prontos para adicionar novos nodes:
 
