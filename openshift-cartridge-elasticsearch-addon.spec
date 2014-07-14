@@ -2,7 +2,7 @@
 
 Summary:       Provides embedded Elasticsearch support
 Name:          openshift-cartridge-elasticsearch-addon
-Version:       1.0.1
+Version:       1.0.2
 Release:       1%{?dist}
 Group:         Network/Daemons
 License:       ASL 2.0
