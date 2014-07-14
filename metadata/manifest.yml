@@ -1,11 +1,11 @@
 Name: elasticsearch-addon
 Cartridge-Short-Name: ELASTICSEARCH
 Display-Name: Elasticsearch 1.2
-Description: "https://github.com/getupcloud/openshift-elasticsearch-cartridge/blob/master/metadata/manifest.yml"
+Description: "Elasticsearch is a flexible and powerful open source, distributed, real-time search and analytics engine. Architected from the ground up for use in distributed environments where reliability and scalability are must haves, Elasticsearch gives you the ability to move easily beyond simple full-text search."
 Version: 1.2
 License: Apache
 Vendor: elasticsearch.org
-Cartridge-Version: 1.0.0
+Cartridge-Version: 0.0.1
 Cartridge-Vendor: redhat
 
 Categories:
