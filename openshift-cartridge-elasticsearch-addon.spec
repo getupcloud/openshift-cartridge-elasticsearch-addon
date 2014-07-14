@@ -42,6 +42,14 @@ Provides Elasticsearch cartridge support to OpenShift. (Cartridge Format V2)
 %doc %{cartridgedir}/LICENSE.txt
 
 %changelog
+* Mon Jul 14 2014 Builder <getup@getupcloud.com> 1.0.2-1
+- bump version (getup@getupcloud.com)
+- Fix version number (mateus@caruccio.com)
+- Using cart-vendor redhat so we can upgrade it (mateus@caruccio.com)
+- Update install (mateus@caruccio.com)
+- Update README_pt.md (mateus@caruccio.com)
+- Update README.md (mateus@caruccio.com)
+
 * Sun Jul 13 2014 Builder <getup@getupcloud.com> 1.0.1-1
 - new package built with tito
 
